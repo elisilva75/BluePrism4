@@ -1,0 +1,110 @@
+﻿<process name="Gmail Process" version="1.0" bpversion="5.0.32.0" narrative="" preferredid="f0dfb28e-b8fd-4bc3-8201-03c1fc4a1989">
+  <view>
+    <camerax>55</camerax>
+    <cameray>21</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="63313011-2495-4448-bf1a-66e75559389d" name="Start" type="Start">
+    <narrative>
+    </narrative>
+    <displayx>-90</displayx>
+    <displayy>-120</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>44b7c217-71ee-48fd-9abd-0a072775f92c</onsuccess>
+  </stage>
+  <stage stageid="986acbef-08c0-487f-8463-b9f8a404e371" name="End" type="End">
+    <narrative>
+    </narrative>
+    <displayx>-90</displayx>
+    <displayy>120</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="62d0c9d3-3413-40c4-8d45-0d27c21d359b" name="Stage1" type="ProcessInfo">
+    <narrative>
+    </narrative>
+    <displayx>-330</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="44b7c217-71ee-48fd-9abd-0a072775f92c" name="Launch Gmail" type="Action">
+    <narrative>
+    </narrative>
+    <displayx>-90</displayx>
+    <displayy>-60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>05727383-1c2a-41dd-b18a-f84843f36e2d</onsuccess>
+    <resource object="Gmail" action="Launch" />
+  </stage>
+  <stage stageid="72ab8234-f034-431a-b1ce-456f68d75b19" name="Login" type="Action">
+    <narrative>
+    </narrative>
+    <displayx>-90</displayx>
+    <displayy>45</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Username" expr="[Username]" />
+      <input type="password" name="Password" expr="[Password]" />
+    </inputs>
+    <onsuccess>986acbef-08c0-487f-8463-b9f8a404e371</onsuccess>
+    <resource object="Gmail" action="Login" />
+  </stage>
+  <stage stageid="60b59121-c460-461d-b94d-32ef000a5528" name="Username" type="Data">
+    <narrative>
+    </narrative>
+    <displayx>195</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="cc7ecbd4-e647-4138-afe5-c38a324288c6" name="Password" type="Data">
+    <narrative>
+    </narrative>
+    <displayx>195</displayx>
+    <displayy>0</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>password</datatype>
+    <initialvalueenc>
+    </initialvalueenc>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="05727383-1c2a-41dd-b18a-f84843f36e2d" name="Get Credentials" type="Action">
+    <narrative>
+    </narrative>
+    <displayx>-90</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Credentials Name" narrative="The name of the credentials to get" expr="&quot;Gmail-BPTutorialTest&quot;" />
+    </inputs>
+    <outputs>
+      <output type="password" name="Password" narrative="The password" stage="Password" />
+      <output type="text" name="Username" narrative="The user name" stage="Username" />
+      <output type="date" name="Expiry Date" narrative="The expiry date" stage="" />
+      <output type="text" name="Status" narrative="The status" stage="" />
+    </outputs>
+    <onsuccess>72ab8234-f034-431a-b1ce-456f68d75b19</onsuccess>
+    <resource object="Blueprism.Automate.clsCredentialsActions" action="Get" />
+  </stage>
+</process>
